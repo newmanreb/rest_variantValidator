@@ -4,7 +4,7 @@ Simple rest interface for VariantVlidator built using Flask Flask-RESTPlus and S
 
 # Import modules
 from flask import Flask
-from flask_restplus import Api, Resource
+from flask_restx import Api, Resource
 
 # Define the application as a Flask app with the name defined by __name__ (i.e. the name of the current module)
 # Most tutorials define application as "app", but I have had issues with this when it comes to deployment,
@@ -28,4 +28,4 @@ class HelloClass(Resource):
 # Allows app to be run in debug mode
 if __name__ == '__main__':
 	application.debug = True # Enable debugging mode
-	application.run(host="127.0.0.1", port=5000) # Specify a host and port fot the app
+	application.run(host="127.0.0.1", port=5000) # Specify a host and port for the app
