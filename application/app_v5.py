@@ -4,7 +4,7 @@ Simple rest interface for VariantValidator built using Flask Flask-RESTPlus and 
 
 # Import modules
 from flask import Flask, make_response
-from flask_restplus import Api, Resource, reqparse
+from flask_restx import Api, Resource, reqparse
 import requests
 from dicttoxml import dicttoxml
 
@@ -28,7 +28,7 @@ parser.add_argument('content-type',
 Representations
  - Adds a response-type into the "Response content type" drop-down menu displayed in Swagger
  - When selected, the APP will return the correct response-header and content type
- - The default for flask-restplus is aspplication/json
+ - The default for flask-restplus is application/json
 """
 # Add additional representations using the @api.representation decorator
 # Requires the module make_response from flask and dicttoxml
@@ -45,7 +45,7 @@ def json(data, code, headers):
     resp.headers['Content-Type'] = 'application/json'
     return resp
 
-# Define a name-space to be read Swagger UI which is built in to Flask-RESTPlus
+# Define a name-space to be read Swagger UI which is built in to Flask-RESTX
 # The first variable is the path of the namespace the second variable describes the space
 hello_space = api.namespace('hello', description='Simple API that returns a greeting')
 @hello_space.route("/")
@@ -117,7 +117,7 @@ class VariantValidatorClass(Resource):
     @api.doc(parser=parser)
     def get(self, genome_build, variant_description, select_transcripts):
 
-        # Make a request to the curent VariantValidator rest-API
+        # Make a request to the current VariantValidator rest-API
         url = '/'.join(['http://rest.variantvalidator.org/variantvalidator', genome_build, variant_description, select_transcripts])
         validation = requests.get(url)
         content = validation.json()
@@ -139,4 +139,4 @@ class VariantValidatorClass(Resource):
 # Allows app to be run in debug mode
 if __name__ == '__main__':
     application.debug = True # Enable debugging mode
-    application.run(host="127.0.0.1", port=5000) # Specify a host and port fot the app
+    application.run(host="127.0.0.1", port=5000) # Specify a host and port for the app
