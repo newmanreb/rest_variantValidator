@@ -231,4 +231,4 @@ def default_error_handler(e):
 # Allows app to be run in debug mode
 if __name__ == '__main__':
     application.debug = True # Enable debugging mode
-    application.run(host="127.0.0.1", port=5000) # Specify a host and port fot the app
+    application.run(host="127.0.0.1", port=5000) # Specify a host and port for the app
