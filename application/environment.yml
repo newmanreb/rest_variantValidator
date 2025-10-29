@@ -4,7 +4,6 @@ channels:
 dependencies:
   - python=3.12
   - werkzeug==2.3.8
-  - tmux==3.3a
   - pip
   - pip:
       - flask-restx==1.1.0

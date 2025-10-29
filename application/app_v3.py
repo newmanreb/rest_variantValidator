@@ -1,12 +1,11 @@
 """
-Simple rest interface for VariantValidator built using Flask Flask-RESTX and Swagger UI
+Simple rest interface for VariantVlidator built using Flask Flask-RESTPlus and Swagger UI
 """
 
 # Import modules
 from flask import Flask
-from flask_restx import Api, Resource
-import requests
-from dicttoxml import dicttoxml
+from flask_restplus import Api, Resource
+import _____
 
 # Define the application as a Flask app with the name defined by __name__ (i.e. the name of the current module)
 # Most tutorials define application as "app", but I have had issues with this when it comes to deployment,
@@ -36,15 +35,15 @@ class NameClass(Resource):
         }
 
 vv_space = api.namespace('VariantValidator', description='VariantValidator APIs')
-@vv_space.route("/variantvalidator/<string:genome_build>/<string:variant_description>/<string:select_transcripts>")
+@vv_space.route("/variantvalidator/_____")
 class VariantValidatorClass(Resource):
-    def get(self, genome_build, variant_description, select_transcripts):
+    def get(self, _____):
 
         # Make a request to the curent VariantValidator rest-API
-        url = '/'.join(['http://rest.variantvalidator.org/varialtvalidator', genome_build, variant_description, select_transcripts])
-        validation = requests.get(url)
-        content = validation.json()
-        return content
+        url = _____
+        validation = _____
+        content = _____
+        return _____
 
 # Allows app to be run in debug mode
 if __name__ == '__main__':
